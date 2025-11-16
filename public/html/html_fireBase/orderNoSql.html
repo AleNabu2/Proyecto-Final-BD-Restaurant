@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FukushiNoSql</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="navbar">
+    <a href="../mainFukushi.html" class="logo"></a>
+    <nav class="menu-links">
+      <a href="orderNoSql.html">Orden</a>
+      <a href="staffNoSql.html">Staff</a>
+      <a href="../mainFukushi.html">Volver</a>
+      <a href="../html_fireBase/orderPaginationNoSql.html">Ver Paginación de ordenes</a>
+    </nav>
+  </header>
+
+  <h1 class="titulo">Ordenes</h1>
+
+  <section class="container">
+    <div class="form-container">
+      <h2>Ver todas las ordenes</h2>
+      <button id="getAllBtn">Obtener todo</button>
+
+      <h2>Obtener por ID</h2>
+      <form id="getOneOrderForm">
+        <label for="orderId">id:</label>
+        <input type="text" id="orderId" name="orderId" required>
+        <label for="status">Estado:</label>
+        <input type="text" id="status" name="status" required>
+        <button type="submit">Buscar</button>
+      </form>
+
+      <ul id="getOneResult"></ul>
+      <hr>
+
+      <h2>Ingresar Ordenes</h2>
+      <form id="postOrderForm">
+        <label for="orderId">Id Orden:</label>
+        <input type="text" id="orderId" name="orderId" required>
+
+        <label for="date">Fecha:</label>
+        <input type="datetime-local" id="date" name="date" required>
+
+        <label for="status">Estado:</label>
+        <select id="status" name="status" required>
+          <option value="true">Activo</option>
+          <option value="false">Cerrado</option>
+        </select>
+
+        <label for="staff_staffId">Id Staff:</label>
+        <input type="text" id="staff_staffId" name="staff_staffId" required>
+
+        <label for="table_tableId">Id Mesa:</label>
+        <input type="text" id="table_tableId" name="table_tableId" required>
+
+        <hr>
+
+        <h3 class="section-title">Platos del Menú</h3>
+
+        <div id="menuContainer" class="menu-container">
+          <div class="menu-item">
+            <div class="input-group">
+              <label for="dishId">Dish ID</label>
+              <input type="text" name="dishId" placeholder="Ej: M001" required>
+            </div>
+
+            <div class="input-group">
+              <label for="name">Nombre</label>
+              <input type="text" name="name" placeholder="Ej: Ramen de miso" required>
+            </div>
+
+            <div class="input-group">
+              <label for="amount">Precio</label>
+              <input type="number" name="amount" placeholder="Ej: 25000" required>
+            </div>
+
+            <div class="input-group">
+              <label for="description">Descripción</label>
+              <input type="text" name="description" placeholder="Breve descripción del plato" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" id="addDishBtn" class="btn-secondary">Agregar otro plato</button>
+          <button type="submit" class="btn-primary">Enviar</button>
+        </div>
+
+      </form>
+      <p id="postSqlResult"></p>
+    </div>
+
+    <div class="table-container">
+      <h3 class="table-title">Datos</h3>
+
+      <table id="getAllResult">
+        <thead>
+          <tr>
+            <th>Id Orden</th>
+            <th>Fecha</th>
+            <th>Estado</th>
+            <th>Id Staff</th>
+            <th>Id Mesa</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="menu-consulta-container">
+      <h3>Consultar menú de una orden</h3>
+
+      <form id="getAllMenuForm">
+        <label>Order ID:</label>
+        <input type="text" id="menuOrderId" required>
+        <button type="submit" class="btn-primary">Ver menú completo</button>
+      </form>
+
+      <form id="getOneMenuForm">
+        <label>Order ID:</label>
+        <input type="text" id="oneMenuOrderId" required>
+        <label>Dish ID:</label>
+        <input type="text" id="oneDishId" required>
+        <button type="submit" class="btn-secondary">Ver plato</button>
+      </form>
+
+      <table id="menuResult">
+        <thead>
+          <tr>
+            <th>Dish ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <script src="../../js/fireBase/postOrderNoSql.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FukushiSql</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+
+<header class="navbar">
+  <a href="../mainFukushi.html" class="logo"></a>
+  <nav class="menu-links">
+    <a href="menu.html">Menú</a>
+    <a href="order2.html">Orden</a>
+    <a href="staff.html">Staff</a>
+    <a href="table.html">Mesas</a>
+    <a href="../mainFukushi.html">Volver</a><br>
+    <a href="../html_sql/paginationSql/tablePagSql.html">Ver Paginación de las mesas</a>
+
+  </nav>
+</header>
+
+<body>
+  <h1 class="titulo">Mesas</h1>
+  <section class="container">
+    <div class="form-container">
+
+      <h2>Ver Todas las mesas</h2>
+      <button id="getAllBtn">Obtener todo</button>
+
+      <h2>Obtener por Disponibilidad</h2>
+      <form id="getOneTableForm">
+        <label for="active">Activo:</label>
+        <input type="text" id="active" name="active" required>
+
+        <button type="submit">Buscar</button>
+      </form>
+      <ul id="getOneResult"></ul>
+
+      <h2>Ingresar Mesa</h2>
+      <form id="postTableForm">
+        <label for="tableId">TableId:</label>
+        <input type="text" id="tableId" name="tableId" required>
+
+        <label for="position">Position:</label>
+        <input type="text" id="position" name="position" required>
+
+        <label for="active">Active:</label>
+        <input type="text" id="active" name="active" required>
+        <button type="submit">Enviar</button>
+      </form>
+      <p id="postSqlResult"></p>
+    </div>
+    <div class="table-container">
+      <h3 class="table-title">Datos</h3>
+
+      <table id="getAllResult">
+        <thead>
+          <tr>
+            <th>TableId</th>
+            <th>Posicion</th>
+            <th>Activo</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="../../js/sql/postTable.js"></script>
+</body>
+
+</html>

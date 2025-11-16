@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8f9fa;
+  color: #ffffff;
+}
+
+.modo-selector {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #f15d30, #d37742);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modo-selector h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.modo-selector p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.botones-modos {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.botones-modos button {
+  background-color: rgb(245, 239, 239);
+  color: #333;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.botones-modos button:hover {
+  background-color: #eee;
+  transform: scale(1.05);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e74c3c;
+  padding: 10px 30px;
+  border-radius: 0 0 5px 5px;
+}
+
+.navbar .logo {
+  width: 150px;        
+  height: 60px;
+  background: url("../img/logo.png") no-repeat center;
+  background-size: cover; 
+}
+
+.navbar .menu-links {
+  display: flex;
+  gap: 100px;
+  margin: 0 auto;
+}
+
+.navbar .menu-links a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 20px;
+  text-shadow: 1px 1px 2px black;
+  transition: 0.3s;
+}
+
+.navbar .menu-links a:hover {
+  color: #b4b4b4;
+}
+
+.banner {
+   display: flex;
+  flex-direction: column; 
+  align-items: center;    
+  background: 
+  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+  url("https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-09-07/o0CVhHp4rD.png") no-repeat center center fixed;
+  background-size: cover;
+  text-align: center;
+  padding: 100px 20px;
+  color: rgb(255, 255, 255); 
+}
+
+.decorativo .base{
+ width: 100%;
+}
+
+.banner .base {
+  max-width: 800px; 
+  width: 100%;
+
+}
+
+.banner .logo {
+  max-width: 400px; 
+  display: block;
+  margin: 0 auto; 
+}
+
+.banner .logo-left {
+  transform: translateX(-50px); 
+  margin-top: 15px;
+}
+
+.banner p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; 
+  color: white;     
+  font-size: 2rem; 
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #e74c3c;
+  color: white;
+  
+}

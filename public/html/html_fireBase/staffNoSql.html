@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FukushiNoSql</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="navbar">
+    <a href="../mainFukushi.html" class="logo"></a>
+    <nav class="menu-links">
+      <a href="orderNoSql.html">Orden</a>
+      <a href="staffNoSql.html">Staff</a>
+      <a href="../mainFukushi.html">Volver</a>
+      <a href="../html_fireBase/staffPaginationNoSql.html">Ver Paginación del staff</a>
+    </nav>
+
+
+  </header>
+
+  <h1 class="titulo">Personal</h1>
+
+  <section class="container">
+    <div class="form-container">
+      <h2>Ver todo el personal</h2>
+      <button id="getAllBtn" class="btn-primary">Obtener todo</button>
+      <button id="syncStaffBtn" class="btn-secondary">Subir staff a SQL</button>
+
+
+      <h2>Buscar por ID</h2>
+      <form id="getOneStaffForm">
+        <label for="staffIdSearch">ID Staff:</label>
+        <input type="text" id="staffIdSearch" name="staffIdSearch" required>
+        <button type="submit" class="btn-secondary">Buscar</button>
+      </form>
+
+      <ul id="getOneResult"></ul>
+      <hr>
+
+      <h2>Ingresar Personal Nuevo</h2>
+      <form id="postStaffForm">
+        <label for="staffId">Staff ID:</label>
+        <input type="text" id="staffId" name="staffId" required>
+
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="active">Activo:</label>
+        <select id="active" name="active" required>
+          <option value="true">Sí</option>
+          <option value="false">No</option>
+        </select>
+
+        <label for="position">Cargo:</label>
+        <input type="text" id="position" name="position" required>
+
+        <hr>
+
+        <h3 class="section-title">Mesas a cargo</h3>
+
+        <div id="tableContainer" class="menu-container">
+          <div class="table-item">
+            <div class="input-group">
+              <label for="tableId">ID Mesa</label>
+              <input type="text" name="tableId" placeholder="Ej: M001" required>
+            </div>
+
+            <div class="input-group">
+              <label for="position">Posición</label>
+              <input type="text" name="position" placeholder="Ej: M1" required>
+            </div>
+
+            <div class="input-group">
+              <label for="active">Activa</label>
+              <select name="active" required>
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" id="addTableBtn" class="btn-secondary">Agregar otra mesa</button>
+          <button type="submit" class="btn-primary">Enviar</button>
+        </div>
+      </form>
+
+      <p id="postSqlResult"></p>
+    </div>
+
+    <div class="table-container">
+      <h3 class="table-title">Datos</h3>
+
+      <table id="getAllResult">
+        <thead>
+          <tr>
+            <th>ID Staff</th>
+            <th>Nombre</th>
+            <th>Activo</th>
+            <th>Cargo</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="menu-consulta-container">
+      <h3>Consultar mesas a cargo de un staff</h3>
+
+      <form id="getAllTableForm">
+        <label>Staff ID:</label>
+        <input type="text" id="tableStaffId" required>
+        <button type="submit" class="btn-primary">Ver mesas</button>
+      </form>
+
+      <form id="getOneTableForm">
+        <label>Staff ID:</label>
+        <input type="text" id="oneTableStaffId" required>
+        <label>Table ID:</label>
+        <input type="text" id="oneTableId" required>
+        <button type="submit" class="btn-secondary">Ver mesa</button>
+      </form>
+
+      <table id="tableResult">
+        <thead>
+          <tr>
+            <th>ID Mesa</th>
+            <th>Posición</th>
+            <th>Activa</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <script src="../../js/fireBase/postStaffNoSql.js"></script>
+  <script>
+
+    document.getElementById("syncStaffBtn").addEventListener("click", async () => {
+      try {
+        const confirmacion = confirm("¿Seguro que deseas subir todos los registros de staff a MySQL?");
+        if (!confirmacion) return;
+
+        const response = await fetch('http://localhost:3000/etl/staff/all');
+
+        if (!response.ok) {
+          throw new Error("Error al sincronizar con MySQL");
+        }
+
+        const result = await response.json();
+        alert(`${result.total} registros importados correctamente a MySQL`);
+      } catch (error) {
+        console.error(error);
+        alert("Ocurrió un error al subir los datos.");
+      }
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FukushiSql</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+
+<header class="navbar">
+  <a href="../mainFukushi.html" class="logo"></a>
+  <nav class="menu-links">
+    <a href="menu.html">Menú</a>
+    <a href="order2.html">Orden</a>
+    <a href="staff.html">Staff</a>
+    <a href="table.html">Mesas</a>
+    <a href="../mainFukushi.html">Volver</a>
+    <a href="../html_sql/paginationSql/menuPagSql.html">Ver Paginación del menu</a>
+  </nav>
+</header>
+
+
+<body>
+  <h1 class="titulo">Menú</h1>
+  <section class="container">
+    <div class="form-container">
+
+      <h2>Ver Todo el Menú</h2>
+      <button id="getAllBtn">Obtener todo</button>
+
+      <h2>Obtener por ID</h2>
+      <form id="getOneMenuForm">
+        <label for="id">id:</label>
+        <input type="text" id="id" name="id" required>
+        <button type="submit">Buscar</button>
+      </form>
+      <ul id="getOneResult"></ul>
+
+      <h2>Ingresar Menú</h2>
+      <form id="postMenuForm">
+        <label for="dishId">DishId:</label>
+        <input type="text" id="dishId" name="dishId" required>
+
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="amount">Precio:</label>
+        <input type="text" id="amount" name="amount" required>
+
+        <label for="description">Descripción:</label>
+        <input type="text" id="description" name="description" required>
+
+        <button type="submit">Enviar</button>
+      </form>
+      <p id="postSqlResult"></p>
+    </div>
+    <div class="table-container">
+      <h3 class="table-title">Datos</h3>
+
+      <table id="getAllResult">
+        <thead>
+          <tr>
+            <th>DishId</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="../../js/sql/postMenu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FukushiSql</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+
+<header class="navbar">
+  <a href="../mainFukushi.html" class="logo"></a>
+  <nav class="menu-links">
+    <a href="menu.html">Menú</a>
+    <a href="order2.html">Orden</a>
+    <a href="staff.html">Staff</a>
+    <a href="table.html">Mesas</a>
+    <a href="../mainFukushi.html">Volver</a>
+    <a href="../html_sql/paginationSql/staffPagSql.html">Ver Paginación del staff</a>
+
+  </nav>
+</header>
+
+<body>
+  <h1 class="titulo">Personal</h1>
+  <section class="container">
+    <div class="form-container">
+
+      <h2>Ver Todo el Personal</h2>
+      <button id="getAllBtn">Obtener todo</button>
+
+      <h2>Obtener por actividad</h2>
+      <form id="getOneStaffForm">
+        <label for="active">Activo:</label>
+        <input type="text" id="active" name="active" required>
+
+        <button type="submit">Buscar</button>
+      </form>
+      <ul id="getOneResult"></ul>
+
+      <h2>Ingresar Personal Nuevo</h2>
+      <form id="postStaffForm">
+        <label for="staffId">StaffId:</label>
+        <input type="text" id="staffId" name="staffId" required>
+
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="active">Activo:</label>
+        <input type="text" id="active" name="active" required>
+
+        <label for="position">Cargo:</label>
+        <input type="text" id="position" name="position" required>
+
+        <button type="submit">Enviar</button>
+      </form>
+      <p id="postSqlResult"></p>
+    </div>
+    <div class="table-container">
+      <h3 class="table-title">Datos</h3>
+
+      <table id="getAllResult">
+        <thead>
+          <tr>
+            <th>StaffId</th>
+            <th>Nombre</th>
+            <th>Activo</th>
+            <th>Cargo</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="../../js/sql/postStaff.js"></script>
+</body>
+
+</html>

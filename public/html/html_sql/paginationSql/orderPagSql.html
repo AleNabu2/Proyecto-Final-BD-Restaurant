@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Paginación de Órdenes (MySQL)</title>
+  <link rel="stylesheet" href="../../../css/stylePNoSql.css">
+</head>
+
+<body>
+  <h2>Órdenes (MySQL)</h2>
+
+  <table border="1" cellpadding="5">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Mesa</th>
+        <th>Mesero</th>
+        <th>Estado</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody id="orderTableBody"></tbody>
+  </table>
+
+  <div class="pagination-controls">
+    <button id="btnPrev">Anterior</button>
+    <span class="page-info" id="pageInfo"></span>
+    <button id="btnNext">Siguiente</button>
+  </div>
+
+  <a href="../order2.html">Volver</a>
+
+  <script src="../../../js/sql/paginationSql/orderPagSql.js"></script>
+</body>
+
+</html>

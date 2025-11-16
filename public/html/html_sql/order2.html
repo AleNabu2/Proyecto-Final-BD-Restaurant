@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FukushiSql</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+
+<header class="navbar">
+  <a href="../mainFukushi.html" class="logo"></a>
+  <nav class="menu-links">
+    <a href="menu.html">Menú</a>
+    <a href="order2.html">Orden</a>
+    <a href="staff.html">Staff</a>
+    <a href="table.html">Mesas</a>
+    <a href="../mainFukushi.html">Volver</a>
+    <a href="../html_sql/paginationSql/orderPagSql.html">Ver Paginación de las ordenes</a>
+
+  </nav>
+</header>
+
+
+<body>
+  <h1 class="titulo">Ordenes</h1>
+  <section class="container">
+    <div class="form-container">
+
+      <h2>Ver todas las ordenes</h2>
+      <button id="getAllBtn">Obtener todo</button>
+
+      <h2>Obtener por estado</h2>
+      <form id="getOneOrderForm">
+        <label for="status">Estado:</label>
+        <input type="text" id="status" name="status" required>
+        <button type="submit">Buscar</button>
+      </form>
+      <ul id="getOneResult"></ul>
+
+      <h2>Ingresar Ordenes</h2>
+      <form id="postOrderForm">
+        <label for="orderId">Id Orden:</label>
+        <input type="text" id="orderId" name="orderId" required>
+
+        <label for="date">Fecha:</label>
+        <input type="text" id="date" name="date" required>
+
+        <label for="status">Estado:</label>
+        <input type="text" id="status" name="status" required>
+
+        <label for="staff_staffId">Id Staff:</label>
+        <input type="text" id="staff_staffId" name="staff_staffId" required>
+
+        <label for="table_tableId">Id Mesa:</label>
+        <input type="text" id="table_tableId" name="table_tableId" required>
+
+        <button type="submit">Enviar</button>
+      </form>
+      <ul id="getOneResult"></ul>
+
+      <h2>Ingresar Menú a orden</h2>
+      <form id="postOrder_MenuForm">
+        <label for="order_orderId">OrderId:</label>
+        <input type="text" id="order_orderId" name="order_orderId" required>
+
+        <label for="menu_dishId">MenuId:</label>
+        <input type="text" id="menu_dishId" name="menu_dishId" required>
+
+        <button type="submit">Enviar</button>
+      </form>
+      <p id="postSqlResult"></p>
+    </div>
+    </div>
+
+    <div class="table-container">
+      <h3 class="table-title">Datos</h3>
+
+      <table id="getAllResult">
+        <thead>
+          <tr>
+            <th>Id Orden</th>
+            <th>Fecha</th>
+            <th>Estado</th>
+            <th>Id Staff</th>
+            <th>Id Mesa</th>
+            <th>Platos</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="../../js/sql/postOrder2.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Paginación de Staff (NoSQL)</title>
+  <link rel="stylesheet" href="../../css/stylePNoSql.css">
+</head>
+
+<body>
+  <h2>Staff (Firebase)</h2>
+
+  <table border="1" cellpadding="5">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Activo</th>
+        <th>Nombre</th>
+        <th>Posición</th>
+      </tr>
+    </thead>
+    <tbody id="staffTableBody"></tbody>
+  </table>
+
+  <div class="pagination-controls">
+    <button id="btnPrev">Anterior</button>
+    <span class="page-info" id="pageInfo"></span>
+    <button id="btnNext">Siguiente</button>
+  </div>
+
+  <a href="../html_fireBase/staffNoSql.html">Volver</a>
+
+  <script src="../../js/fireBase/paginationStaffNoSql.js"></script>
+</body>
+
+</html>
